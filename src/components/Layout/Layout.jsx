@@ -5,17 +5,13 @@ import Sidebar from "../Sidebar/Sidebar.jsx";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 const Layout = () => {
-  const { pathnames } = useLocation();
-
-  // making a dashboard as default route
-
-  {
-    pathnames === "/" && <Navigate to="/dashboard" />;
-  }
+  const { pathname } = useLocation();
 
   return (
     <div className={css.container}>
       <Sidebar />
+      {/* making the dashboard as the default route */}
+      {pathname === "/" && <Navigate to="/dashboard" />}
 
       <div className={css.dashboard}>
         <div className={css.topBaseGradients}>
